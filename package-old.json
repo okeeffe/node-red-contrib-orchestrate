@@ -1,0 +1,28 @@
+{
+  "name": "node-red-contrib-orchestrate",
+  "description": "A Node Red node for the orchestrate.io service",
+  "keywords": [
+    "node-red",
+    "nodered",
+    "storage",
+    "database",
+    "cloud",
+    "orchestrate.io",
+    "orchestrate"
+  ],
+  "version": "0.1.0",
+  "homepage": "https://github.com/okeeffe/node-red-contrib-orchestrate",
+  "author": {
+    "name": "Rory O'Keeffe",
+    "email": "rory@cirkit.io",
+    "url": "http://roryokeeffe.com/"
+    },
+    "dependencies": {
+      "orchestrate": "0.3.11"
+      },
+      "node-red"     : {
+        "nodes": {
+          "orchestrate": "orchestrate.js"
+        }
+      }
+    }

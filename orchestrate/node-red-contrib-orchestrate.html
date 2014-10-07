@@ -1,0 +1,111 @@
+<!-- Config node -->
+<script type="text/javascript">
+    RED.nodes.registerType('orchestrate', {
+        category: 'config',
+        color: "#3FADB5",
+        credentials: {
+            token: {type: "text"}
+        },
+        label: function() {
+            return this.name || "orchestrate-config";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="orchestrate">
+    <div class="form-row">
+        <label for="node-input-token"><i class="icon-lock"></i> API Key</label>
+        <input type="text" id="node-config-input-token" placeholder="Application API Key">
+    </div>
+</script>
+
+<!-- Output node (put stuff in the database) -->
+<script type="text/javascript">
+    RED.nodes.registerType('orchestrate out',{
+        category: 'storage-output',
+        color: '#3FADB5',
+        defaults: {
+            name: { value: "" },
+            application: { value: "", type: "orchestrate" },
+            collection: { value: "" }
+        },
+        inputs: 1,
+        outputs: 0,
+        align: "right",
+        icon: "o.png",
+        label: function() {
+            return this.name || "orchestrate";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="orchestrate out">
+    <div class="form-row">
+        <label for="node-input-application"><i class="icon-lock"></i> Application</label>
+        <input type="text" id="node-input-application" placeholder="Orchestrate Application">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-collection"><i class="icon-database"></i> Collection</label>
+        <input type="text" id="node-input-collection" placeholder="Collection">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="orchestrate out">
+    <p>A simple node that pushes data to an orchestrate.io application's collection(s).</p>
+    <p>
+        On the incoming <code>msg</code> object you can set the following properties:<br><br>
+        - <code>msg.collection</code> <em>(semi-optional)</em>: Specify which collection to push the data to (this will override the option entered in the node config window if set, allowing you to use one output node to send to multiple collections). Note that collection must be set either in the node options or in this property.<br>
+        - <code>msg.data</code> <em>(required)</em>: The JS data object you want to send to your collection.<br>
+        - <code>msg.key</code> <em>(optional)</em>: Give the data a key. If absent, orchestrate will apply its own.<br>
+        - <code>msg.match</code> <em>(optional)</em>: Update if the value of this matches a currently stored ref, or assign as false to create only if no match found.<br>
+    </p>
+</script>
+
+<!-- Input node (get stuff from the database) -->
+<script type="text/javascript">
+    RED.nodes.registerType('orchestrate in',{
+        category: 'storage-input',
+        color: '#3FADB5',
+        defaults: {
+            name: { value: "" },
+            application: { value: "", type: "orchestrate" },
+            collection: { value: "" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "o.png",
+        label: function() {
+            return this.name || "orchestrate";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="orchestrate in">
+    <div class="form-row">
+        <label for="node-input-application"><i class="icon-lock"></i> Application</label>
+        <input type="text" id="node-input-application" placeholder="Orchestrate Application">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-collection"><i class="icon-database"></i> Collection</label>
+        <input type="text" id="node-input-collection" placeholder="Collection">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="orchestrate in">
+    <p>A simple node that gets data from an orchestrate.io application's collection(s), either with straight gets based on keys or with a lucene powered search.</p>
+    <p>
+        On the incoming <code>msg</code> object you can set the following properties:<br><br>
+        - <code>msg.collection</code> <em>(optional)</em>: Specify which collection to push the data to (this will override the option entered in the node config window if set, allowing you to use one output node to send to multiple collections).<br>
+        - <code>msg.key</code> <em>(optional)</em>: Get based on a key. This will supercede a query if present.<br>
+        - <code>msg.query</code> <em>(optional)</em>: A lucene search query string.<br>
+        - <code>msg.queryOptions</code> <em>(required if using msg.query)</em>: An object with options that apply modifiers to your query results, e.g. limit: 5, offset: 2<br>
+    </p>
+</script>

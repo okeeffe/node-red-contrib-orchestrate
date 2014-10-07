@@ -1,0 +1,32 @@
+{
+  "name": "node-red-contrib-orchestrate",
+  "version": "0.1.0",
+  "description": "Orchestrate DBaaS support for Node-RED",
+  "main": "orchestrate/node-red-contrib-orchestrate.js",
+  "dependencies": {
+    "orchestrate": "^0.3.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/okeeffe/node-red-contrib-orchestrate.git"
+  },
+  "keywords": [
+    "node-red",
+    "nodered",
+    "storage",
+    "database",
+    "cloud",
+    "orchestrate",
+    "orchestrate.io"
+  ],
+  "author": "Rory O'Keeffe <rorokeeffe@gmail.com> (http://roryokeeffe.com/)",
+  "license": "Apache",
+  "bugs": {
+    "url": "https://github.com/okeeffe/node-red-contrib-orchestrate/issues"
+  },
+  "homepage": "https://github.com/okeeffe/node-red-contrib-orchestrate"
+}
