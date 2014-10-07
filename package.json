@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-orchestrate",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Orchestrate DBaaS support for Node-RED",
   "main": "orchestrate/node-red-contrib-orchestrate.js",
   "dependencies": {
@@ -23,6 +23,11 @@
     "orchestrate",
     "orchestrate.io"
   ],
+  "node-red": {
+    "nodes": {
+      "orchestrate": "orchestrate/node-red-contrib-orchestrate.js"
+    }
+  },
   "author": "Rory O'Keeffe <rorokeeffe@gmail.com> (http://roryokeeffe.com/)",
   "license": "Apache",
   "bugs": {
