@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-orchestrate",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Orchestrate DBaaS support for Node-RED",
   "main": "orchestrate/node-red-contrib-orchestrate.js",
   "dependencies": {
