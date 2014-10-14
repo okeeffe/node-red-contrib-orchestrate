@@ -1,5 +1,7 @@
 # Orchestrate Client for Node-RED
 
+[![NPM](https://nodei.co/npm/node-red-contrib-orchestrate.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/node-red-contrib-orchestrate/)
+
 ![Node-RED and Orchestrate](http://i.imgur.com/lgDAL9H.jpg)
 
 A [Node-RED](http://nodered.org) wrapper for the [Orchestrate](http://orchestrate.io) database as a service API. There are both input and output nodes included for interacting with the Orchestrate REST API.

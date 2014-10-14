@@ -5,6 +5,7 @@ module.exports = function(RED) {
   function OrchestrateNode(config) {
     RED.nodes.createNode(this, config);
     this.token = this.credentials.token;
+    this.name = config.name;
   }
   RED.nodes.registerType("orchestrate", OrchestrateNode,
     {
@@ -15,6 +16,7 @@ module.exports = function(RED) {
   function OrchestrateOutNode(config) {
     RED.nodes.createNode(this, config);
     this.collection = config.collection;
+    this.name = config.name;
     this.orchestrateConfig = RED.nodes.getNode(config.application);
 
     if(this.orchestrateConfig) {
@@ -76,6 +78,7 @@ module.exports = function(RED) {
   function OrchestrateInNode(config) {
     RED.nodes.createNode(this, config);
     this.collection = config.collection;
+    this.name = config.name;
     this.orchestrateConfig = RED.nodes.getNode(config.application);
 
     if(this.orchestrateConfig) {
